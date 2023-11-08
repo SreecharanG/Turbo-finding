@@ -4,6 +4,14 @@ import { fontSans } from '@/lib/fonts'
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from '@/components/theme-provider'
 import { SiteHeader } from '@/components/site-header'
+import { SiteFooter } from '@/components/site-footer'
+import { ThemeSwitcher } from '@/components/theme-switcher'
+
+import { Toaster as DefaultToaster } from '@/registry/default/ui/toaster'
+import { Toaster as NewYorkToaster } from '@/registry/new-york/ui/toaster'
+
+import { TailwindIndicator } from '@/components/tailwind-indicator'
+
 import '@/styles/global.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -41,7 +49,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <TailwindIndicator />
           </ThemeProvider>
           <ThemeSwitcher />
-          <Analytics />
+          {/* <Analytics /> */}
           <NewYorkToaster />
           <DefaultToaster />
         </body>
