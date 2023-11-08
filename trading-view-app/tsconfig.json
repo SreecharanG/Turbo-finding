@@ -1,27 +1,39 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
+    },
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    ]
+
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/CustomTexts.tsx", "src/components/ExploreCard.tsx", "src/components/Footer.tsx", "src/components/InsightCard.tsx", "src/components/Navbar.tsx", "src/components/NewFeatures.tsx", "src/components/StartSteps.tsx", "src/sections/About.tsx", "src/sections/Explore.tsx", "src/sections/Feedback.tsx", "src/sections/GetStarted.tsx", "src/sections/Hero.tsx", "src/sections/Insights.tsx", "src/sections/WhatsNew.tsx", "src/sections/World.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".contentlayer/generated"
+  ],
+  "exclude": ["node_modules", "./scripts/build-registry.ts"]
 }
